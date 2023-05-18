@@ -9,6 +9,8 @@ const schemaUser = new Schema({
     max: 32,
   },
   messages: [{ type: Schema.Types.ObjectId, ref: 'Message' }]
+},{
+  timestamps: true
 });
 
 const User = mongoose.model('User', schemaUser);

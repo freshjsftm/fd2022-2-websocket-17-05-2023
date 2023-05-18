@@ -6,7 +6,12 @@ const { SOCKET_EVENTS } = require('./configs');
 
 const httpServer = http.createServer(app);
 /************ WS *****************/
-const io = new Server(httpServer, { transports: ['websocket'] });
+const io = new Server(httpServer, {
+  //transports: ['websocket'],
+  cors: {
+    origin: 'http://localhost:5000',
+  },
+});
 
 io.on('connection', (socket) => {
   console.log('connection to socket');
@@ -14,8 +19,8 @@ io.on('connection', (socket) => {
     console.log('message ===>>>', message);
     try {
       const savedMessage = await Message.create(message);
-      if(!savedMessage){
-        throw new Error('Bad message!')
+      if (!savedMessage) {
+        throw new Error('Bad message!');
       }
       io.emit(SOCKET_EVENTS.NEW_MESSAGE, savedMessage);
     } catch (error) {

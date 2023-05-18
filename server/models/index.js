@@ -7,7 +7,7 @@ const baseName = path.basename(__filename);
 const db = {};
 
 mongoose
-  .connect(`monngodb://${config.host}:${config.port}/${config.dbName}`)
+  .connect(`mongodb://${config.host}:${config.port}/${config.dbName}`)
   .catch((err) => {
     console.log('mongo connect err = ', err);
     process.exit(1);
