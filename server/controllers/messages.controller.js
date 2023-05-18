@@ -11,3 +11,4 @@ module.exports.getAllMessages = async (req, res, next) => {
     next(error);
   }
 };
+
