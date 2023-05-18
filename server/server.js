@@ -7,7 +7,7 @@ const { SOCKET_EVENTS } = require('./configs');
 const httpServer = http.createServer(app);
 /************ WS *****************/
 const io = new Server(httpServer, {
-  //transports: ['websocket'],
+  transports: ['websocket'],
   cors: {
     origin: 'http://localhost:5000',
   },
