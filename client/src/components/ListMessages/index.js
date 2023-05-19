@@ -17,7 +17,7 @@ const ListMessages = () => {
       ) : (
         messages.map((message) => (
           <article key={message._id}>
-            {message.content} ({message.createdAt})
+            {message.content} from {message.author ? message.author.login : 'admin'} ({message.createdAt})
           </article>
         ))
       )}

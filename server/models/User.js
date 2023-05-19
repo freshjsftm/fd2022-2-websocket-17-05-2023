@@ -5,6 +5,7 @@ const schemaUser = new Schema({
   login: {
     type: String,
     required: true,
+    unique: true,
     min: 3,
     max: 32,
   },
